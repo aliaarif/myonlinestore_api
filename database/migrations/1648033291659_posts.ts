@@ -10,7 +10,6 @@ export default class Posts extends BaseSchema {
             table.string('title', 100)
             table.string('slug', 100)
             table.text('body')
-
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)
             table.dateTime("deleted_at").defaultTo(null)

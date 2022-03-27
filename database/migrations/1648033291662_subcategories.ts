@@ -1,14 +1,15 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Permissions extends BaseSchema {
-    protected tableName = 'permissions'
+export default class Categories extends BaseSchema {
+    protected tableName = 'subcategories'
 
     public async up() {
         this.schema.createTable(this.tableName, (table) => {
             table.increments('id').primary()
+            table.integer('category_id').unsigned().references('id').inTable('categories').onDelete('CASCADE')
             table.string('title', 100)
-            table.string('slug', 100)
-            table.string('body', 200)
+            table.string('slug', 100).unique()
+            table.string('description', 200)
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)
             table.dateTime("deleted_at").defaultTo(null)

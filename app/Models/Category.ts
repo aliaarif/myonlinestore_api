@@ -4,6 +4,8 @@ import { column, BaseModel, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 
 import Product from 'App/Models/Product'
 
+import Subcategory from 'App/Models/Subcategory'
+
 export default class Category extends BaseModel {
     @column({ isPrimary: true })
     public id: number
@@ -31,7 +33,9 @@ export default class Category extends BaseModel {
     })
     public products: HasMany<typeof Product>
 
-
-
+    @hasMany(() => Subcategory, {
+        foreignKey: 'subcategoryId',
+    })
+    public subcategories: HasMany<typeof Subcategory>
 
 }

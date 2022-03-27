@@ -7,7 +7,6 @@ export default class CountriesSchema extends BaseSchema {
         this.schema.createTable(this.tableName, (table) => {
             table.increments('id').primary()
             table.string('name', 100).notNullable()
-
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)
             table.dateTime("deleted_at").defaultTo(null)

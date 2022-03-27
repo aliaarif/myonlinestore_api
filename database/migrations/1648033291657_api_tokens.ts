@@ -12,10 +12,8 @@ export default class ApiTokens extends BaseSchema {
       table.string('token', 100).notNullable().unique()
       table.boolean('is_revoked').defaultTo(false)
       table.dateTime('expires_at',).nullable()
-
       table.dateTime("created_at").notNullable()
       table.dateTime("updated_at").defaultTo(null)
-
     })
   }
 

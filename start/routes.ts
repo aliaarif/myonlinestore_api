@@ -18,10 +18,11 @@
 |
 */
 
+import Route from '@ioc:Adonis/Core/Route'
 
+Route.get('/', async () => { return { "Welcome to": "My Online Store" } })
 
-// Route.get('/', async () => { return { "Welcome to": "My Online Store" } })
-
+import './routes/category'
 import './routes/product'
 
 

@@ -8,7 +8,6 @@ export default class StatesSchema extends BaseSchema {
             table.increments('id').primary()
             table.integer('country_id').unsigned().references('id').inTable('countries').onDelete('CASCADE')
             table.string('name', 100).notNullable()
-
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)
             table.dateTime("deleted_at").defaultTo(null)

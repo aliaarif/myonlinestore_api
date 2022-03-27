@@ -9,7 +9,6 @@ export default class CitiesSchema extends BaseSchema {
             // table.integer('country_id').unsigned().references('id').inTable('countries').onDelete('CASCADE')
             table.integer('state_id').unsigned().references('id').inTable('states').onDelete('CASCADE')
             table.string('name', 100).notNullable()
-
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)
             table.dateTime("deleted_at").defaultTo(null)
