@@ -11,6 +11,9 @@ export default class Category extends BaseModel {
     public id: number
 
     @column()
+    public brandId: number
+
+    @column()
     public title: string
 
     @column()

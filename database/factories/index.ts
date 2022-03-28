@@ -15,13 +15,16 @@ export const ProductFactory = Factory
         const title = faker.commerce.productName()
         const slug = string.dashCase(title)
         const price = faker.commerce.price()
+        let brand = Math.floor(Math.random() * 9) + 1
         let category = Math.floor(Math.random() * 3) + 1
         // let subcategory = Math.floor(Math.random() * 4) + 1
+
         category = category ? category : 1
+        brand = brand ? brand : 1
         // subcategory = subcategory ? subcategory : 1
         return {
+            brandId: brand,
             categoryId: category,
-            //subcategoryId: subcategory,
             title: title,
             slug: slug,
             price: price,

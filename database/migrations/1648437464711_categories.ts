@@ -6,6 +6,7 @@ export default class Categories extends BaseSchema {
     public async up() {
         this.schema.createTable(this.tableName, (table) => {
             table.increments('id').primary()
+            table.integer('brand_id').unsigned().references('id').inTable('brands').onDelete('CASCADE')
             table.string('title', 100)
             table.string('slug', 100).unique()
             table.string('description', 200)

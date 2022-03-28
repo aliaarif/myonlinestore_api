@@ -1,11 +1,11 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Product from 'App/Models/Product'
 
-export default class ProductController {
+export default class ProductsController {
     public async index({ request, response }: HttpContextContract): Promise<void> {
         const page = request.input('page', 1)
-        // const categoryId = request.input('categoryId', 1)
-        // const subcategoryId = request.input('subcategoryId', 1)
+        // const categoryId = request.input('categoryId', 2)
+
 
         const limit = 12
 
@@ -13,8 +13,9 @@ export default class ProductController {
             .query()
 
             .preload('category')
-            // .preload('subcategory', (subcategoryQuery) => {
-            //     subcategoryQuery.where('subcategory_id', subcategoryId)
+
+            // .preload('category', (categoryQuery) => {
+            //     categoryQuery.where('id', categoryId)
             // })
 
             .paginate(page, limit)

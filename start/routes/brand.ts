@@ -1,5 +1,5 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
-    Route.resource('category', 'CategoryController')
+    Route.resource('brands', 'BrandsController')
 }).prefix('api/v1/')

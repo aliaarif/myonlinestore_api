@@ -1,12 +1,12 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Category from 'App/Models/Category'
+import Brand from 'App/Models/Brand'
 
 
-export default class CategoryController {
+export default class BrandsController {
     public async index({ request, response }: HttpContextContract): Promise<void> {
         const page = request.input('page', 1)
         const limit = 12
-        const categories = await Category
+        const categories = await Brand
             .query()
             .paginate(page, limit)
         return response.send(categories)

@@ -1,6 +1,8 @@
 import { DateTime } from 'luxon'
 
-import { column, BaseModel, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import { column, BaseModel, belongsTo, BelongsTo, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+
+import Brand from 'App/Models/Brand'
 
 import Category from 'App/Models/Category'
 
@@ -14,6 +16,9 @@ export default class Product extends BaseModel {
 
     @column()
     public userId: number
+
+    @column()
+    public brandId: number
 
     @column()
     public categoryId: number
@@ -51,12 +56,13 @@ export default class Product extends BaseModel {
     @belongsTo(() => User)
     public user: BelongsTo<typeof User>
 
+    @hasMany(() => Brand)
+    public brands: HasMany<typeof Brand>
+
     @belongsTo(() => Category)
     public category: BelongsTo<typeof Category>
 
     // @belongsTo(() => Subcategory)
     // public subcategory: BelongsTo<typeof Subcategory>
-
-
 
 }
