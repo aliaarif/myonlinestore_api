@@ -4,6 +4,6 @@ import { UserFactory } from 'Database/factories'
 
 export default class UserSeeder extends BaseSeeder {
     public async run() {
-        await UserFactory.with('profile', 1).with('posts', 2).with('products', 3).createMany(10)
+        await UserFactory.with('profile', 1).with('posts', 2).with('products', 3).createMany(18)
     }
 }

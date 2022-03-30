@@ -10,7 +10,7 @@ export default class Products extends BaseSchema {
 
             table.integer('brand_id').unsigned().references('id').inTable('brands').onDelete('CASCADE')
             table.integer('category_id').unsigned().references('id').inTable('categories').onDelete('CASCADE')
-            // table.integer('subcategory_id').unsigned().references('id').inTable('subcategories').onDelete('CASCADE')
+            table.integer('subcategory_id').unsigned().references('id').inTable('subcategories').onDelete('CASCADE')
             table.string('title', 100)
             table.string('slug', 100).unique()
             table.decimal('price', 6, 2)

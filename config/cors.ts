@@ -44,7 +44,7 @@ const corsConfig: CorsConfig = {
   |                     one of the above values.
   |
   */
-  origin: ['http://localhost:8081', 'http://192.168.1.3:8081'],
+  origin: ['http://localhost:8080', 'http://192.168.1.3:8080', 'http://localhost:8081', 'http://192.168.1.4:8081'],
 
 
 

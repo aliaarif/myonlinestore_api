@@ -6,7 +6,7 @@ import Brand from 'App/Models/Brand'
 
 import Category from 'App/Models/Category'
 
-// import Subcategory from 'App/Models/Subcategory'
+import Subcategory from 'App/Models/Subcategory'
 
 import User from 'App/Models/User'
 
@@ -23,8 +23,8 @@ export default class Product extends BaseModel {
     @column()
     public categoryId: number
 
-    // @column()
-    // public subcategoryId: number
+    @column()
+    public subcategoryId: number
 
     @column()
     public title: string
@@ -62,7 +62,7 @@ export default class Product extends BaseModel {
     @belongsTo(() => Category)
     public category: BelongsTo<typeof Category>
 
-    // @belongsTo(() => Subcategory)
-    // public subcategory: BelongsTo<typeof Subcategory>
+    @belongsTo(() => Subcategory)
+    public subcategory: BelongsTo<typeof Subcategory>
 
 }

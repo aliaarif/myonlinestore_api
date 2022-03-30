@@ -32,6 +32,4 @@ export default class Subcategory extends BaseModel {
     @belongsTo(() => Category)
     public category: BelongsTo<typeof Category>
 
-
-
 }

@@ -9,19 +9,21 @@ export default class BrandSeeder extends BaseSeeder {
 
     public async run() {
 
-        for (let i = 1; i <= 9; i++) {
+        for (let i = 1; i <= 7; i++) {
+            // const condition = i === 1 ? true : false
             await Brand.createMany([
                 {
                     title: 'B' + i,
                     slug: 'brand-' + i,
-                    description: 'Dummy Description for B' + i + ' Brand'
+                    description: 'Dummy Description for Brand' + i + ' Brand'
                 },
             ])
         }
 
 
-        for (let i = 1; i <= 12; i++) {
-            let brand = Math.floor(Math.random() * 3) + 1
+        for (let i = 1; i <= 20; i++) {
+            let brand = Math.floor(Math.random() * 7) // Total Brands Available
+            // const condition = i === 0 ? true : false
             await Category.createMany([
                 {
                     brandId: brand ? brand : 1,
@@ -31,20 +33,33 @@ export default class BrandSeeder extends BaseSeeder {
                 },
 
             ])
+
+
+
+            for (let j = 1; j <= 8; j++) {
+                let category = await Category.query().where('brandId', brand).paginate(1, 1)
+
+                // const condition = i === 0 ? true : false
+                await Subcategory.createMany([
+                    {
+                        categoryId: category['id'],
+                        // categoryId: category,
+                        title: 'Sub Category ' + i + '-' + j,
+                        slug: 'subcategory-' + i + '-' + j,
+                        description: 'Dummy Description for Sub Category ' + j + '-' + i
+                    },
+                ])
+            }
+
+
+
+
+
+
         }
 
 
-        for (let i = 1; i <= 16; i++) {
-            let category = Math.floor(Math.random() * 3) + 1
-            await Subcategory.createMany([
-                {
-                    categoryId: category ? category : 1,
-                    title: 'Sub Category ' + i,
-                    slug: 'sub-category-' + i,
-                    description: 'Dummy Description for Sub Category ' + i
-                },
-            ])
-        }
+
 
 
 
