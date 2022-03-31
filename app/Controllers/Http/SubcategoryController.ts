@@ -7,9 +7,11 @@ export default class SubcategoryController {
         const page = request.input('page', 1)
         // const categoryId = request.input('categoryId', 1)
         const limit = 12
+        const filters = request.only(['categoryId'])
 
         const categories = await Subcategory
             .query()
+            .where('categoryId', filters.categoryId)
             //.whereNotNull('title')
             // .preload('category', (subCategoryQuery) => {
             //     subCategoryQuery.where('category_id', categoryId)

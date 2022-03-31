@@ -22,14 +22,16 @@ export default class SubcategorySeeder extends BaseSeeder {
 
                 const categoryId = category ? category?.id : 1
 
-                Subcategory.createMany([
-                    {
-                        categoryId: categoryId,
-                        title: 'Sub Category ' + category?.id,
-                        slug: 'subcategory-' + category?.id,
-                        description: 'Dummy Description for Sub Category ' + category?.id
-                    },
-                ])
+                for (let i = 1; i <= categories.length; i++) {
+                    Subcategory.createMany([
+                        {
+                            categoryId: categoryId,
+                            title: 'Sub Category ' + category?.id + i,
+                            slug: 'subcategory-' + category?.id + i,
+                            description: 'Dummy Description for Sub Category ' + category?.id + i
+                        },
+                    ])
+                }
 
             });
 
