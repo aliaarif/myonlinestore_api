@@ -22,7 +22,7 @@ export default class SubcategorySeeder extends BaseSeeder {
 
                 const categoryId = category ? category?.id : 1
 
-                for (let i = 1; i <= categories.length; i++) {
+                for (let i = 1; i <= 4; i++) {
                     Subcategory.createMany([
                         {
                             categoryId: categoryId,

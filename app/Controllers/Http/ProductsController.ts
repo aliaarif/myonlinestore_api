@@ -16,11 +16,11 @@ export default class ProductsController {
 
             .where('brandId', filters.brandId)
             .where('categoryId', filters.categoryId)
+            //.where('subcategoryId', filters.subCategoryId)
             .preload('category')
 
             // .preload('category', (categoryQuery) => {
             //     categoryQuery.where('id', filters.categoryId)
-
             // })
             .whereNotNull('title')
 

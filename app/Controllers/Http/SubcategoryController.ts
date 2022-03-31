@@ -16,6 +16,9 @@ export default class SubcategoryController {
             // .preload('category', (subCategoryQuery) => {
             //     subCategoryQuery.where('category_id', categoryId)
             // })
+            .distinct('title')
+            // .distinct('categoryId', filters.categoryId)
+
             .paginate(page, limit)
         return response.send(categories)
     }
