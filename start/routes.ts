@@ -27,4 +27,6 @@ import './routes/category'
 import './routes/subcategory'
 import './routes/product'
 
+import './routes/test'
+
 

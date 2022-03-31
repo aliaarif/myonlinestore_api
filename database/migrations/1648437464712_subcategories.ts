@@ -8,7 +8,7 @@ export default class Categories extends BaseSchema {
             table.increments('id').primary()
             table.integer('category_id').unsigned().references('id').inTable('categories').onDelete('CASCADE')
             table.string('title', 100)
-            table.string('slug', 100).unique()
+            table.string('slug', 100)
             table.string('description', 200)
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)
