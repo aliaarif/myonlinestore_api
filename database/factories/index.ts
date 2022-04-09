@@ -14,6 +14,8 @@ import Product from 'App/Models/Product'
 
 import Category from 'App/Models/Category'
 import Subcategory from 'App/Models/Subcategory'
+import Address from 'App/Models/Address'
+import Card from 'App/Models/Card'
 
 // import Subcategory from 'App/Models/Subcategory'
 
@@ -107,6 +109,36 @@ export const ProfileFactory = Factory.define(Profile, ({ faker }) => {
     }
 }).build()
 
+export const CardFactory = Factory.define(Card, () => {
+
+    let cards = ['378282246310005', '371449635398431', '378734493671000', '5610591081018250', '4242424242424242', '30569309025904']
+    let exp = ['1224', '1225', '0126', '1226', '0827', '1227']
+    let cvv = ['123', '456', '789', '101', '113', '145']
+    return {
+        card_no: cards[Math.floor(Math.random() * 5)],
+        card_exp: exp[Math.floor(Math.random() * 5)],
+        card_cvv: cvv[Math.floor(Math.random() * 5)],
+
+    }
+}).build()
+
+export const AddressFactory = Factory.define(Address, ({ faker }) => {
+    const phone = faker.datatype.number({ min: 7777777777, max: 9999999999 })
+    let zip = ['331023', '331023', '331023', '331023', '331023', '331023']
+    let place = ['Pilani Mode', 'Sony Hospital', 'Fazal Hussen Point', 'Chauhan Bartan Bhandar', 'Giga Chowk', 'Kashan E Wafa']
+
+
+
+    return {
+        name: faker.internet.userName(),
+        email: faker.internet.email(),
+        phone: phone,
+        address: faker.address.city() + ', ' + faker.address.state() + ', ' + faker.address.country(),
+        zip: zip[Math.floor(Math.random() * 5)],
+        place: place[Math.floor(Math.random() * 5)]
+    }
+}).build()
+
 export const PostFactory = Factory.define(Post, ({ faker }) => {
     const title = faker.lorem.words(6)
     return {
@@ -129,6 +161,8 @@ export const UserFactory = Factory
         }
     })
     .relation('profile', () => ProfileFactory) //
+    .relation('addresses', () => AddressFactory) //
+    .relation('cards', () => CardFactory) //
     .relation('posts', () => PostFactory) // 👈
     .relation('products', () => ProductFactory) // 👈
     .build()

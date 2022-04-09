@@ -6,6 +6,9 @@ export default class Orders extends BaseSchema {
     public async up() {
         this.schema.createTable(this.tableName, (table) => {
             table.increments('id').primary()
+            table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
+            table.integer('address_id').unsigned().references('id').inTable('addresses').onDelete('CASCADE')
+            table.integer('card_id').unsigned().references('id').inTable('cards').onDelete('CASCADE')
             table.string('title', 100)
             table.integer("created_by").defaultTo(1)
             table.integer("updated_by").defaultTo(1)

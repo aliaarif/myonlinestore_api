@@ -3,14 +3,11 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import { beforeSave, column, BaseModel, hasOne, HasOne, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 
 import Setting from 'App/Models/Setting'
-
 import Profile from 'App/Models/Profile'
 import Post from 'App/Models/Post'
-
 import Product from 'App/Models/Product'
-
-
-
+import Address from 'App/Models/Address'
+import Card from 'App/Models/Card'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -60,14 +57,28 @@ export default class User extends BaseModel {
   })
   public profile: HasOne<typeof Profile>
 
+
+  @hasMany(() => Address, {
+    foreignKey: 'userId',
+  })
+  public addresses: HasMany<typeof Address>
+
+  @hasMany(() => Card, {
+    foreignKey: 'userId',
+  })
+  public cards: HasMany<typeof Card>
+
+
   @hasMany(() => Post, {
     foreignKey: 'userId',
   })
   public posts: HasMany<typeof Post>
 
+
   @hasMany(() => Product, {
     foreignKey: 'userId',
   })
   public products: HasMany<typeof Product>
+
 
 }

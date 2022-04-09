@@ -22,6 +22,8 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async () => { return { "Welcome to": "My Online Store" } })
 
+import './routes/auth'
+import './routes/account'
 import './routes/brand'
 import './routes/category'
 import './routes/subcategory'

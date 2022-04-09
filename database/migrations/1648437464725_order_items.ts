@@ -7,6 +7,7 @@ export default class OrderItems extends BaseSchema {
         this.schema.createTable(this.tableName, (table) => {
             table.increments('id').primary()
             table.integer('order_id').unsigned().references('id').inTable('orders').onDelete('CASCADE')
+            table.integer('product_id').unsigned().references('id').inTable('products').onDelete('CASCADE')
             table.string('description', 200)
         })
     }

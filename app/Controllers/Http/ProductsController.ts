@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+// import ApiToken from 'App/Models/ApiToken'
 import Product from 'App/Models/Product'
 // import Subcategory from 'App/Models/Subcategory'
 
@@ -20,7 +21,7 @@ export default class ProductsController {
             .preload('category')
 
             // .preload('category', (categoryQuery) => {
-            //     categoryQuery.where('id', filters.categoryId)
+            //     categoryQuery.where('brandId', filters.brandId)
             // })
             .whereNotNull('title')
 

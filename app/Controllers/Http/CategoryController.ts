@@ -13,4 +13,13 @@ export default class CategoryController {
             .paginate(page, limit)
         return response.send(categories)
     }
+
+
+    public async findOneCategory({ response, params }: HttpContextContract): Promise<void> {
+        const category = await Category
+            .query()
+            .where('brandId', params.id)
+            .first()
+        return response.send(category?.id ?? 0)
+    }
 }
